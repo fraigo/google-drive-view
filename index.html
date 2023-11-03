@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Python Data Viewer</title>
+    <title>Google Drive Viewer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="main.css">
@@ -12,17 +12,32 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 </head>
 <body>
+    <div class="container row">
+        <div class="col s12" >
+            <button class="waves-effect waves-light btn right" id="signin-button" onclick="handleSignInClick()">Sign In</button>
+            <button style="display:none" class="waves-effect waves-light btn right" id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
+        </div>
+    </div>
     <div id="root" ></div>
-    <script type="text/babel" src="Home.js"></script>
+    <script type="text/babel" src="GoogleDrive.js"></script>
     <script type="text/babel">
-ReactDOM.render(
-    <Home />,
-    document.getElementById('root')
-);
+
+function init(){
+    window.reactApp = ReactDOM.render(
+        <GoogleDrive />,
+        document.getElementById('root')
+    );
+}
+
       </script>
       <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-     
+    <script type="text/javascript" src="apikey.js"></script>
+    <script type="text/javascript" src="gdrive.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js"
+    onload="this.onload=function(){};handleClientLoad()"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
     
 </body>
 </html>
